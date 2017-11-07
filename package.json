@@ -5,7 +5,7 @@
     "fs-extra": "3.0.1",
     "rimraf": "2.6.1",
     "wire-webapp-lru-cache": "2.0.0",
-    "wire-webapp-proteus": "5.2.0"
+    "wire-webapp-proteus": "https://github.com/ceoimon/proteus.js.git#header_encryption_only"
   },
   "description": "High-level API with persistent storage for Proteus.",
   "devDependencies": {

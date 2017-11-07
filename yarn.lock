@@ -5049,9 +5049,9 @@ window-size@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/window-size/-/window-size-0.2.0.tgz#b4315bb4214a3d7058ebeee892e13fa24d98b075"
 
-wire-webapp-cbor@2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/wire-webapp-cbor/-/wire-webapp-cbor-2.1.2.tgz#3eb29693618f92c3b6a86357c204e0822e7297f9"
+wire-webapp-cbor@2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/wire-webapp-cbor/-/wire-webapp-cbor-2.1.5.tgz#742912cb40b037dcc7125ce4c554ea2d6d398064"
 
 wire-webapp-lru-cache@2.0.0:
   version "2.0.0"
@@ -5059,13 +5059,13 @@ wire-webapp-lru-cache@2.0.0:
   dependencies:
     webpack "^2.2.0-rc.0"
 
-wire-webapp-proteus@5.1.3:
-  version "5.1.3"
-  resolved "https://registry.yarnpkg.com/wire-webapp-proteus/-/wire-webapp-proteus-5.1.3.tgz#4b8be7aea3f6f03d07d96b7308d379a48c0bed35"
+"wire-webapp-proteus@https://github.com/ceoimon/proteus.js.git#header_encryption_only":
+  version "5.2.0"
+  resolved "https://github.com/ceoimon/proteus.js.git#46852718ba429d209c29486f68c4beeb684c426f"
   dependencies:
     ed2curve "0.2.1"
     libsodium-wrappers-sumo "0.5.4"
-    wire-webapp-cbor "2.1.2"
+    wire-webapp-cbor "2.1.5"
 
 wordwrap@0.0.2, wordwrap@~0.0.2:
   version "0.0.2"
