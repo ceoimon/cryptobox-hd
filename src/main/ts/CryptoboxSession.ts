@@ -23,8 +23,8 @@ export class CryptoboxSession {
     return this.session.decrypt(this.pk_store, envelope);
   }
 
-  public encrypt(plaintext: string | Uint8Array): Promise<ArrayBuffer> {
-    return this.session.encrypt(plaintext)
+  public encrypt(plaintext: string | Uint8Array, confuse_pre_key_id?: number): Promise<ArrayBuffer> {
+    return this.session.encrypt(plaintext, confuse_pre_key_id)
       .then(function (ciphertext: Proteus.message.Envelope) {
          return ciphertext.serialise();
       });

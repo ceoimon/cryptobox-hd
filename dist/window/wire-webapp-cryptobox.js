@@ -401,7 +401,7 @@ var Cryptobox = (function (_super) {
             .then(function () { return Proteus.keys.PreKey.generate_prekeys(start, size); })
             .then(function (newPreKeys) { return _this.store.save_prekeys(newPreKeys); });
     };
-    Cryptobox.prototype.encrypt = function (session_id, payload, pre_key_bundle) {
+    Cryptobox.prototype.encrypt = function (session_id, payload, pre_key_bundle, confuse_pre_key_id) {
         var _this = this;
         var encryptedBuffer;
         var loadedSession;
@@ -414,7 +414,7 @@ var Cryptobox = (function (_super) {
         })
             .then(function (session) {
             loadedSession = session;
-            return loadedSession.encrypt(payload);
+            return loadedSession.encrypt(payload, confuse_pre_key_id);
         })
             .then(function (encrypted) {
             encryptedBuffer = encrypted;
@@ -485,8 +485,8 @@ var CryptoboxSession = (function () {
         var envelope = Proteus.message.Envelope.deserialise(ciphertext);
         return this.session.decrypt(this.pk_store, envelope);
     };
-    CryptoboxSession.prototype.encrypt = function (plaintext) {
-        return this.session.encrypt(plaintext)
+    CryptoboxSession.prototype.encrypt = function (plaintext, confuse_pre_key_id) {
+        return this.session.encrypt(plaintext, confuse_pre_key_id)
             .then(function (ciphertext) {
             return ciphertext.serialise();
         });

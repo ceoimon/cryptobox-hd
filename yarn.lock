@@ -5061,7 +5061,7 @@ wire-webapp-lru-cache@2.0.0:
 
 "wire-webapp-proteus@https://github.com/ceoimon/proteus.js.git#header_encryption_only":
   version "5.2.0"
-  resolved "https://github.com/ceoimon/proteus.js.git#46852718ba429d209c29486f68c4beeb684c426f"
+  resolved "https://github.com/ceoimon/proteus.js.git#6dea7ce5fddddbcb354910420d837f47996d3c6c"
   dependencies:
     ed2curve "0.2.1"
     libsodium-wrappers-sumo "0.5.4"

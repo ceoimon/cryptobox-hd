@@ -325,7 +325,7 @@ export class Cryptobox extends EventEmitter {
       .then((newPreKeys: Array<Proteus.keys.PreKey>) => this.store.save_prekeys(newPreKeys));
   }
 
-  public encrypt(session_id: string, payload: string | Uint8Array, pre_key_bundle: ArrayBuffer): Promise<ArrayBuffer> {
+  public encrypt(session_id: string, payload: string | Uint8Array, pre_key_bundle?: ArrayBuffer, confuse_pre_key_id?: number): Promise<ArrayBuffer> {
     let encryptedBuffer: ArrayBuffer;
     let loadedSession: CryptoboxSession;
 
@@ -339,7 +339,7 @@ export class Cryptobox extends EventEmitter {
       })
       .then((session: CryptoboxSession) => {
         loadedSession = session;
-        return loadedSession.encrypt(payload);
+        return loadedSession.encrypt(payload, confuse_pre_key_id);
       })
       .then((encrypted: ArrayBuffer) => {
         encryptedBuffer = encrypted;

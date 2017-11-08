@@ -161,7 +161,7 @@ export declare class Cryptobox extends EventEmitter {
   private init: Promise<Array<Proteus.keys.PreKey>>;
   create(): Promise<Array<Proteus.keys.PreKey>>;
   decrypt(session_id: string, ciphertext: ArrayBuffer): Promise<Uint8Array>;
-  encrypt(session: CryptoboxSession | string, payload: string | Uint8Array, pre_key_bundle?: ArrayBuffer): Promise<ArrayBuffer>;
+  encrypt(session: CryptoboxSession | string, payload: string | Uint8Array, pre_key_bundle?: ArrayBuffer, confuse_pre_key_id?: number): Promise<ArrayBuffer>;
   get_serialized_last_resort_prekey(): Promise<{id: number, key: string}>;
   get_serialized_standard_prekeys(): Promise<Array<{id: number, key: string}>>;
   load(): Promise<Array<Proteus.keys.PreKey>>;
@@ -179,7 +179,7 @@ export declare class CryptoboxSession {
   pk_store: store.ReadOnlyStore;
   session: Proteus.session.Session;
   constructor(id: string, pk_store: store.ReadOnlyStore, session: Proteus.session.Session);
-  decrypt(ciphertext: ArrayBuffer): Promise<Uint8Array>;
+  decrypt(ciphertext: ArrayBuffer, confuse_pre_key_id?: number): Promise<Uint8Array>;
   encrypt(plaintext: string | Uint8Array): Promise<ArrayBuffer>;
   fingerprint_local(): string;
   fingerprint_remote(): string;
