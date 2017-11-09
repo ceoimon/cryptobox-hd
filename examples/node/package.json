@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "cryptobox-hd": "^1.0.0",
+    "cryptobox-hd": "^1.0.1",
     "proteus-hd": "^1.0.2",
     "logdown": "^3.2.2"
   },
