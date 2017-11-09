@@ -35,6 +35,7 @@ const runSequence = require('run-sequence');
 const ts = require('gulp-typescript');
 const tsProjectNode = ts.createProject('tsconfig.json');
 const webpack = require('webpack');
+const isWsl = require('is-wsl');
 
 // Aliases
 gulp.task('b', ['build']);
@@ -46,9 +47,9 @@ gulp.task('t', ['test']);
 gulp.task('clean', ['clean_browser', 'clean_node'], () => {
 });
 
-gulp.task('clean_browser', () => gulp.src('dist/window').pipe(clean()));
+gulp.task('clean_browser', () => gulp.src('dist').pipe(clean()));
 
-gulp.task('clean_node', () => gulp.src('dist/commonjs').pipe(clean()));
+gulp.task('clean_node', () => gulp.src('lib').pipe(clean()));
 
 gulp.task('build', done => {
   runSequence('build_ts_node', 'build_ts_browser', done);
@@ -78,12 +79,12 @@ gulp.task('build_ts_node', () => {
 
   return merge([
     tsResult.dts
-      .pipe(gulp.dest('dist/typings')),
+      .pipe(gulp.dest('typings')),
     tsResult.js
       .pipe(replace('exports.default = {', 'module.exports = {'))
       .pipe(gulpif(disableLogging, replace(/(const|var) Logdown[^\n]*/ig, '')))
       .pipe(gulpif(disableLogging, replace(/[_]?this.logger[^\n]*/igm, '')))
-      .pipe(gulp.dest('dist/commonjs'))
+      .pipe(gulp.dest('lib'))
   ]);
 });
 
@@ -99,7 +100,7 @@ gulp.task('default', ['dist'], () => {
 });
 
 gulp.task('dist', done => {
-  runSequence('clean', 'install', 'build', done);
+  runSequence('clean', 'build', done);
 });
 
 gulp.task('install', ['install_bower_assets'], () => {
@@ -113,13 +114,18 @@ gulp.task('install_bower_assets', ['install_bower'], () => gulp.src('bower_asset
       return `${prefix}/${name}`;
     }
   }))
-  .pipe(gulp.dest('dist/lib')));
+  .pipe(gulp.dest('bower_lib')));
 
 gulp.task('test', done => {
   runSequence('test_node', 'test_browser', done);
 });
 
 gulp.task('test_browser', done => {
+  if (isWsl) {
+    gutil.log(gutil.colors.yellow('Skipping browser tests for WSL.'));
+    return done();
+  }
+
   gutil.log(gutil.colors.yellow('Running tests in Google Chrome:'));
   const file = process.argv[4];
 
@@ -127,9 +133,9 @@ gulp.task('test_browser', done => {
     configFile: `${__dirname}/karma.conf.js`,
     files: [
       // Libraries
-      {pattern: 'dist/lib/dynamic/**/*.js', included: true, served: true, nocache: true},
+      {pattern: 'bower_lib/dynamic/**/*.js', included: true, served: true, nocache: true},
       // Application
-      'dist/window/**/*.js',
+      'dist/**/*.js',
       // Tests
       (file) ? `test/${file}` : 'test/{browser,common}/**/*Spec.js'
     ],

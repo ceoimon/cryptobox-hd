@@ -29,8 +29,8 @@ describe('cryptobox.Cryptobox', function() {
       Proteus = window.Proteus;
       done();
     } else {
-      cryptobox = require('../../dist/commonjs/wire-webapp-cryptobox');
-      Proteus = require('wire-webapp-proteus');
+      cryptobox = require('../../lib/cryptobox-hd');
+      Proteus = require('proteus-hd');
       sodium = require('libsodium-wrappers-sumo');
       done();
     }

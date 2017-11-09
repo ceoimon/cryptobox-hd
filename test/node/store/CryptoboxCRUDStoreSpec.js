@@ -17,10 +17,10 @@
  *
  */
 
-const cryptobox = require('../../../dist/commonjs/wire-webapp-cryptobox');
+const cryptobox = require('../../../lib/cryptobox-hd');
 const fs = require('fs-extra');
 const path = require('path');
-const Proteus = require('wire-webapp-proteus');
+const Proteus = require('proteus-hd');
 const {FileEngine} = require('@wireapp/store-engine/dist/commonjs/engine');
 
 // gulp test_node --file "node/store/CryptoboxCRUDStoreSpec.js"

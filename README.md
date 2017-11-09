@@ -1,45 +1,37 @@
-# Wire
+## Cryptobox-HD
 
-This repository is part of the source code of Wire. You can find more information at [wire.com](https://wire.com) or by contacting opensource@wire.com.
+*Note: If you don't need header encryption, use the original [Cryptobox](https://github.com/wireapp/wire-webapp-cryptobox) instead*
 
-You can find the published source code at [github.com/wireapp](https://github.com/wireapp).
+Cryptobox-HD provides a high-level API with persistent storage for the [Proteus-HD][2] implementation of the [Signal Protocol][3].
 
-For licensing information, see the attached LICENSE file and the list of third-party licenses at [wire.com/legal/licenses/](https://wire.com/legal/licenses/).
-
-## Cryptobox
-
-Cryptobox provides a high-level API with persistent storage for the [Proteus][2] implementation of the [Axolotl][3] protocol.
-
-[2]: https://github.com/wireapp/proteus
-[3]: https://github.com/trevp/axolotl/wiki
+[2]: https://github.com/ceoimon/proteus-hd
+[3]: https://signal.org/docs/
 
 ## Build Status
 
-[![Build Status](https://travis-ci.org/wireapp/wire-webapp-cryptobox.svg?branch=master)](https://travis-ci.org/wireapp/wire-webapp-cryptobox)
+[![Build Status](https://travis-ci.org/ceoimon/cryptobox-hd.svg?branch=header_encryption)](https://travis-ci.org/ceoimon/cryptobox-hd)
 
 ## Installation
-
-### Browser
-
-```bash
-bower install wire-webapp-cryptobox
-```
 
 ### Node.js
 
 ```bash
-yarn add wire-webapp-cryptobox
+yarn add cryptobox-hd
 ```
+
+### Browser
+
+Use a module bundler or [UMD](https://github.com/umdjs/umd) builds in the [`dist` folder](https://unpkg.com/cryptobox-hd/dist/)
 
 ## Usage
 
 ### Browser
 
-- [index.html](./dist/index.html)
+- [browser.html](./examples/browser.html)
 
 ### Node.js
 
-- [index.js](./dist/index.js) 
+- [index.js](./examples/node/index.js)
 
 ## Development
 

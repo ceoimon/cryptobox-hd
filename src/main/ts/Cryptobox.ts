@@ -1,4 +1,4 @@
-import * as Proteus from 'wire-webapp-proteus';
+import * as Proteus from 'proteus-hd';
 import CryptoboxCRUDStore from './store/CryptoboxCRUDStore';
 import EventEmitter = require('events');
 import Logdown = require('logdown');
@@ -387,4 +387,4 @@ export class Cryptobox extends EventEmitter {
 }
 
 // Note: Path to "package.json" must be relative to the "commonjs" dist files
-Cryptobox.prototype.VERSION = require('../../package.json').version;
+Cryptobox.prototype.VERSION = require('../package.json').version;

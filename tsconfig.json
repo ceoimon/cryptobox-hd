@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "declaration": false,
+    "declaration": true,
     "lib": ["es7", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",

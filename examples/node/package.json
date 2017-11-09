@@ -1,0 +1,13 @@
+{
+  "name": "node-example",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "cryptobox-hd": "^1.0.0",
+    "proteus-hd": "^1.0.2",
+    "logdown": "^3.2.2"
+  },
+  "scripts": {
+    "start": "node ."
+  }
+}

@@ -4,12 +4,12 @@ const webpack = require('webpack');
 module.exports = {
   devtool: 'source-map',
   entry: {
-    filename: `${__dirname}/dist/commonjs/${pkg.name}.js`
+    filename: `${__dirname}/lib/${pkg.name}.js`
   },
   output: {
     filename: `${pkg.name}.js`,
     library: 'cryptobox',
-    path: `${__dirname}/dist/window`
+    path: `${__dirname}/dist`
   },
   externals: {
     'bazinga64': true,
@@ -17,7 +17,7 @@ module.exports = {
     'logdown': 'Logdown',
     'fs-extra': false,
     'wire-webapp-lru-cache': 'LRUCache',
-    'wire-webapp-proteus': 'Proteus'
+    'proteus-hd': 'Proteus'
   },
   node: {
     fs: 'empty',

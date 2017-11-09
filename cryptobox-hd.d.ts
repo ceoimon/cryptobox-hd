@@ -18,7 +18,7 @@
 /// <reference types="node" />
 
 import Dexie from "dexie";
-import * as Proteus from "wire-webapp-proteus";
+import * as Proteus from "proteus-hd";
 import {CRUDEngine} from "@wireapp/store-engine/dist/commonjs/engine";
 import EventEmitter = require('events');
 
@@ -179,8 +179,8 @@ export declare class CryptoboxSession {
   pk_store: store.ReadOnlyStore;
   session: Proteus.session.Session;
   constructor(id: string, pk_store: store.ReadOnlyStore, session: Proteus.session.Session);
-  decrypt(ciphertext: ArrayBuffer, confuse_pre_key_id?: number): Promise<Uint8Array>;
-  encrypt(plaintext: string | Uint8Array): Promise<ArrayBuffer>;
+  decrypt(ciphertext: ArrayBuffer): Promise<Uint8Array>;
+  encrypt(plaintext: string | Uint8Array, confuse_pre_key_id?: number): Promise<ArrayBuffer>;
   fingerprint_local(): string;
   fingerprint_remote(): string;
 }

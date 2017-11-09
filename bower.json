@@ -12,8 +12,8 @@
     "*.*",
     "**/.*",
     "bower_components",
-    "dist/**/*",
-    "!dist/window/**/*",
+    "lib",
+    "!dist",
     "node_modules",
     "spec",
     "src",
@@ -22,7 +22,7 @@
   ],
   "license": "GPL-3.0",
   "main": [
-    "dist/window/wire-webapp-cryptobox.js"
+    "dist/cryptobox-hd.js"
   ],
-  "name": "wire-webapp-cryptobox"
+  "name": "cryptobox-hd"
 }

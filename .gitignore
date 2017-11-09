@@ -7,11 +7,11 @@
 !/.idea/vcs.xml
 !/.idea/watcherTasks.xml
 
+/dist
+/lib
+/bower_lib
 /bower_components
-/dist/commonjs
-/dist/system/
-/dist/lib
 /node_modules
 /test/node/store/test
-/typings
 /npm-debug.log*
+/typings
