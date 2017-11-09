@@ -47,6 +47,10 @@ gulp.task('t', ['test']);
 gulp.task('clean', ['clean_browser', 'clean_node'], () => {
 });
 
+gulp.task('clean_bower', () => gulp.src('bower_components').pipe(clean()));
+
+gulp.task('clean_typings', () => gulp.src('typings').pipe(clean()));
+
 gulp.task('clean_browser', () => gulp.src('dist').pipe(clean()));
 
 gulp.task('clean_node', () => gulp.src('lib').pipe(clean()));
@@ -97,6 +101,10 @@ gulp.task('default', ['dist'], () => {
     server: {baseDir: './'},
     startPath: '/dist'
   });
+});
+
+gulp.task('prepublish', done => {
+  runSequence('clean', 'build', 'clean_bower', 'clean_typings', done);
 });
 
 gulp.task('dist', done => {

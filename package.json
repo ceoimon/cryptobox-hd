@@ -47,7 +47,7 @@
     "dist": "gulp dist --env production",
     "lint": "echo \"No linting specified\" && exit 0",
     "preversion": "yarn lint && yarn test",
-    "version": "yarn dist",
+    "prepublishOnly": "gulp prepublish --env production",
     "start": "gulp",
     "test": "gulp install && gulp dist && gulp test",
     "test:browser": "gulp install && gulp dist && gulp test_browser",
@@ -60,6 +60,6 @@
     "src",
     "lib",
     "dist",
-    "./cryptobox-hd.d.ts"
+    "cryptobox-hd.d.ts"
   ]
 }
