@@ -3,7 +3,7 @@
     "@wireapp/store-engine": "0.1.0",
     "dexie": "1.5.1",
     "fs-extra": "3.0.1",
-    "proteus-hd": "^1.0.2",
+    "proteus-hd": "^1.0.4",
     "rimraf": "2.6.1",
     "wire-webapp-lru-cache": "2.0.0"
   },
@@ -50,6 +50,7 @@
     "prepublishOnly": "gulp prepublish --env production",
     "start": "gulp",
     "test": "gulp install && gulp dist && gulp test",
+    "postversion": "git push && git push --tag",
     "test:browser": "gulp install && gulp dist && gulp test_browser",
     "test:node": "gulp clean_node && gulp build_ts_node && gulp test_node",
     "test:rerun": "gulp test"

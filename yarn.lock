@@ -3792,9 +3792,9 @@ progress@^1.1.8:
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/progress/-/progress-1.1.8.tgz#e260c78f6161cdd9b0e56cc3e0a85de17c7a57be"
 
-proteus-hd@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/proteus-hd/-/proteus-hd-1.0.2.tgz#c9d1e627e93a49a021ee56931b03fd6abe09647a"
+proteus-hd@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/proteus-hd/-/proteus-hd-1.0.4.tgz#89b12e144ee059db5b87168c6a87c36bc3406c84"
   dependencies:
     ed2curve "0.2.1"
     libsodium-wrappers-sumo "0.5.4"
