@@ -55,7 +55,7 @@
     "test:rerun": "gulp test"
   },
   "types": "./cryptobox-hd.d.ts",
-  "version": "6.2.0",
+  "version": "1.0.0",
   "files": [
     "src",
     "lib",
